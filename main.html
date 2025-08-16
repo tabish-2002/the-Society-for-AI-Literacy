@@ -1,3 +1,4 @@
+<!-- Landing Page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +11,15 @@
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
+      text-align: center;
     }
     header {
       background-color: #36809c;
       color: white;
       padding: 1rem;
-      text-align: center;
+    }
+    nav {
+      margin-top: 0.5rem;
     }
     nav a {
       color: white;
@@ -23,67 +27,106 @@
       text-decoration: none;
       font-weight: bold;
     }
-    section {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-      background-color: white;
-      margin-top: 20px;
-      border-radius: 8px;
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
     }
-    h2 {
+    .hero {
+      padding: 3rem 1rem;
+      background-color: white;
+      margin: 20px auto;
+      border-radius: 8px;
+      max-width: 900px;
+    }
+    .hero h1 {
+      margin: 0 0 1rem;
+      font-size: 2rem;
       color: #36809c;
     }
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
-      margin: 10px 0;
-      background-color: #fafafa;
+    .intro {
+      margin: 20px auto;
+      max-width: 700px;
+      font-size: 1.1rem;
+      color: #333;
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
+    .buttons {
+      margin: 30px 0;
+    }
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
       background-color: #36809c;
       color: white;
-      margin-top: 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .buttons a:hover {
+      background-color: #2b667b;
+    }
+    footer {
+      background-color: #36809c;
+      color: white;
+      padding: 1rem;
+      margin-top: 40px;
+    }
+    footer nav {
+      margin-top: 10px;
+    }
+    footer a {
+      color: white;
+      margin: 0 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <!-- Header with Nav -->
   <header>
     <h1>Rural Opportunity Hub</h1>
     <nav>
-      <a href="main.html" class="active">Main page</a>
-      <a href="Scholarships.html">Scholarships</a>
+      <a href="main.html" class="active">Home</a>
+      <a href="scholarships.html">Scholarships</a>
       <a href="opportunities.html">Opportunities</a>
+      <a href="forum.html">Community</a>
+      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-<a href="scholarships.html" style="text-decoration: none; color: inherit;">
-  <div class="card" style="text-align: center;">
-    <h3>Scholarships</h3>
-    <p style="font-size: 0.9rem; color: gray; margin-top: 4px;">
-      Check out some scholarships
+  <!-- Hero / Intro -->
+  <section class="hero">
+    <h1>Helping Rural Students Access What’s Theirs</h1>
+    <p class="intro">
+      The Rural Opportunity Hub (ROH) connects students from rural communities across Canada 
+      with scholarships, programs, and mentorship. Our goal is to make educational resources 
+      more accessible and empower students to succeed.
     </p>
-  </div>
-</a>
+    <div class="buttons">
+      <a href="scholarships.html">Find Scholarships</a>
+      <a href="opportunities.html">Browse Opportunities</a>
+      <a href="forum.html">Join the Community</a>
+    </div>
+  </section>
 
-<a href="scholarships.html" style="text-decoration: none; color: inherit;">
-  <div class="card" style="text-align: center;">
-    <h3>Oppertunities</h3>
-    <p style="font-size: 0.9rem; color: gray; margin-top: 4px;">
-      Check out some oppertunities
-    </p>
-  </div>
-</a>
+  <!-- Footer with Nav -->
+  <footer>
+    <p>© 2025 Rural Opportunity Hub</p>
+    <nav>
+      <a href="main.html">Home</a>
+      <a href="scholarships.html">Scholarships</a>
+      <a href="opportunities.html">Opportunities</a>
+      <a href="forum.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+</body>
+</html>
 
-<a href="scholarships.html" style="text-decoration: none; color: inherit;">
-  <div class="card" style="text-align: center;">
-    <h3>Contact</h3>
-    <p style="font-size: 0.9rem; color: gray; margin-top: 4px;">
-      Feel free to check in with us
-    </p>
-  </div>
-</a>
