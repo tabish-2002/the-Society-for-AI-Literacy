@@ -1,4 +1,3 @@
-<!-- Scholarships -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,89 +10,341 @@
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+    /* Header */
     header {
       background-color: #36809c;
       color: white;
-      padding: 1rem;
-      text-align: center;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
     }
-    nav {
-      margin-top: 0.5rem;
+    header img {
+      height: 60px;
+      width: auto;
     }
-    nav a {
+    header nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    header nav a {
       color: white;
-      margin: 0 10px;
+      margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
     }
-    nav a:hover,
-    nav a.active {
+    header nav a:hover,
+    header nav a.active {
       text-decoration: underline;
     }
-    section {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
+
+    /* Content */
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 20px 5%;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+    .scholarship-header {
       background-color: white;
-      margin-top: 20px;
       border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
     }
     h2 {
       color: #36809c;
       margin-top: 0;
+      font-size: 2rem;
     }
-    .card {
-      border: 1px solid #ddd;
+
+    /* Filters */
+    .filter-container {
+      background: white;
       border-radius: 8px;
-      padding: 15px;
-      margin: 10px 0;
-      background-color: #fafafa;
+      padding: 20px;
+      margin-bottom: 20px;
     }
-    .card h3 {
-      margin-top: 0;
+    .filter-container h3 {
+      margin: 0 0 15px 0;
+      color: #36809c;
+    }
+    .filter-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .filter-group label {
+      font-weight: bold;
+      margin-bottom: 6px;
       color: #333;
     }
-    .card p {
-      margin: 5px 0;
+    select, input {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
+
+    /* Scholarships Grid */
+    .scholarship-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .scholarship-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fafafa;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .scholarship-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .scholarship-card h3 {
+      color: #36809c;
+      margin: 0 0 10px 0;
+    }
+    .scholarship-info {
+      color: #555;
+      margin: 6px 0;
+    }
+    .scholarship-card a {
+      display: inline-block;
+      margin-top: 10px;
       background-color: #36809c;
       color: white;
-      margin-top: 20px;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .scholarship-card a:hover {
+      background-color: #2b667b;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #36809c;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+    footer img {
+      height: 50px;
+      width: auto;
+    }
+    footer nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer nav a:hover {
+      text-decoration: underline;
+    }
+    .footer-right p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        justify-content: center;
+      }
+      header nav {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+      }
+      .content-container {
+        padding: 15px;
+      }
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      footer nav {
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Rural Opportunity Hub</h1>
+    <img src="ROH_logo.png" alt="Rural Opportunity Hub Logo">
     <nav>
-      <a href="main.html" class="active">Home</a>
-      <a href="scholarships.html">Scholarships</a>
-      <a href="opportunities.html">Opportunities</a>
-      <a href="forum.html">Community</a>
+      <a href="main.html">Home</a>
+      <a href="scholarships.html" class="active">Scholarships</a>
+      <a href="o.html">Opportunities</a>
+      <a href="community.html">Community</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-  <section>
-    <h2>Scholarships</h2>
-  </section>
 
-   <footer>
-    <p>© 2025 Rural Opportunity Hub</p>
-    <nav>
-      <a href="main.html">Home</a>
-      <a href="scholarships.html">Scholarships</a>
-      <a href="opportunities.html">Opportunities</a>
-      <a href="forum.html">Community</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <div class="content-container">
+    <div class="scholarship-header">
+      <h2>Find Scholarships</h2>
+      <p>Browse scholarships tailored for rural students. Use the filters below to refine your search.</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-container">
+      <h3>Filter Scholarships</h3>
+      <div class="filter-row">
+        <div class="filter-group">
+          <label for="deadline">Deadline</label>
+          <select id="deadline">
+            <option value="all">All</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="past">Past</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="province">Province / Territory</label>
+          <select id="province">
+            <option value="all">All</option>
+            <option value="AB">Alberta</option>
+            <option value="BC">British Columbia</option>
+            <option value="MB">Manitoba</option>
+            <option value="NB">New Brunswick</option>
+            <option value="NL">Newfoundland and Labrador</option>
+            <option value="NT">Northwest Territories</option>
+            <option value="NS">Nova Scotia</option>
+            <option value="NU">Nunavut</option>
+            <option value="ON">Ontario</option>
+            <option value="PE">Prince Edward Island</option>
+            <option value="QC">Quebec</option>
+            <option value="SK">Saskatchewan</option>
+            <option value="YT">Yukon</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="education">Education Level</label>
+          <select id="education">
+            <option value="all">All</option>
+            <option value="highschool">High School</option>
+            <option value="undergraduate">Undergraduate</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="search">Search</label>
+          <input type="text" id="search" placeholder="Search by keyword...">
+        </div>
+      </div>
+    </div>
+
+    <!-- Scholarships Grid -->
+    <div class="scholarship-grid" id="scholarshipGrid"></div>
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <img src="ROH_logo.png" alt="Rural Opportunity Hub Logo">
+    </div>
+    <div class="footer-center">
+      <nav>
+        <a href="main.html">Home</a>
+        <a href="scholarships.html">Scholarships</a>
+        <a href="o.html">Opportunities</a>
+        <a href="community.html">Community</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-right">
+      <p>© 2025 Rural Opportunity Hub</p>
+    </div>
   </footer>
+
+  <script>
+    async function loadScholarships() {
+      try {
+        const response = await fetch("scholarships.json");
+        const scholarships = await response.json();
+
+        const grid = document.getElementById("scholarshipGrid");
+        grid.innerHTML = "";
+
+        scholarships.forEach(sch => {
+          const card = document.createElement("div");
+          card.classList.add("scholarship-card");
+          card.dataset.deadline = new Date(sch.deadline) > new Date() ? "upcoming" : "past";
+          card.dataset.province = sch.province;
+          card.dataset.education = sch.educationLevel;
+          card.dataset.tags = sch.eligibility.join(", ").toLowerCase();
+
+          card.innerHTML = `
+            <h3>${sch.title}</h3>
+            <p class="scholarship-info"><strong>Amount:</strong> ${sch.amount}</p>
+            <p class="scholarship-info"><strong>Deadline:</strong> ${sch.deadline}</p>
+            <p class="scholarship-info"><strong>Eligibility:</strong> ${sch.eligibility.join(", ")}</p>
+            <a href="${sch.moreInfo}" target="_blank">More Info</a>
+          `;
+
+          grid.appendChild(card);
+        });
+
+        applyFilters(); // run filters initially
+      } catch (error) {
+        console.error("Error loading scholarships:", error);
+      }
+    }
+
+    function applyFilters() {
+      const deadlineVal = document.getElementById("deadline").value.toLowerCase();
+      const provinceVal = document.getElementById("province").value.toLowerCase();
+      const educationVal = document.getElementById("education").value.toLowerCase();
+      const searchVal = document.getElementById("search").value.toLowerCase();
+
+      const cards = document.querySelectorAll(".scholarship-card");
+
+      cards.forEach(card => {
+        const deadline = card.dataset.deadline.toLowerCase();
+        const province = card.dataset.province.toLowerCase();
+        const education = card.dataset.education.toLowerCase();
+        const tags = card.dataset.tags.toLowerCase();
+        const text = card.innerText.toLowerCase();
+
+        let visible = true;
+
+        if (deadlineVal !== "all" && deadline !== deadlineVal) visible = false;
+        if (provinceVal !== "all" && province !== provinceVal) visible = false;
+        if (educationVal !== "all" && education !== educationVal) visible = false;
+        if (searchVal && !text.includes(searchVal) && !tags.includes(searchVal)) visible = false;
+
+        card.style.display = visible ? "block" : "none";
+      });
+    }
+
+    // Bind filter listeners
+    ["deadline", "province", "education", "search"].forEach(id => {
+      document.getElementById(id).addEventListener("input", applyFilters);
+    });
+
+    window.onload = loadScholarships;
+  </script>
 </body>
 </html>
-
-   

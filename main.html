@@ -6,31 +6,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rural Opportunity Hub (ROH)</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+
+    /* Header */
     header {
       background-color: #36809c;
       color: white;
-      padding: 1rem;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
     }
-    nav {
-      margin-top: 0.5rem;
+    header img {
+      height: 60px;
+      width: auto;
     }
-    nav a {
+    header nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    header nav a {
       color: white;
-      margin: 0 10px;
+      margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
     }
-    nav a:hover,
-    nav a.active {
+    header nav a:hover,
+    header nav a.active {
       text-decoration: underline;
     }
+
+    /* Hero */
     .hero {
       padding: 3rem 1rem;
       background-color: white;
@@ -66,35 +86,66 @@
     .buttons a:hover {
       background-color: #2b667b;
     }
+
+    /* Footer */
     footer {
       background-color: #36809c;
       color: white;
-      padding: 1rem;
-      margin-top: 40px;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: auto; /* ensures footer sticks at bottom */
     }
-    footer nav {
-      margin-top: 10px;
+    footer img {
+      height: 50px;
+      width: auto;
     }
-    footer a {
+    footer nav a {
       color: white;
-      margin: 0 8px;
+      margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
     }
-    footer a:hover {
+    footer nav a:hover {
       text-decoration: underline;
+    }
+    .footer-right p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        justify-content: center;
+      }
+      header nav {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+      }
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      footer nav {
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Header with Nav -->
+  <!-- Header -->
   <header>
-    <h1>Rural Opportunity Hub</h1>
+    <img src="ROH_logo.png" alt="Rural Opportunity Hub Logo">
     <nav>
       <a href="main.html" class="active">Home</a>
       <a href="scholarships.html">Scholarships</a>
-      <a href="opportunities.html">Opportunities</a>
-      <a href="forum.html">Community</a>
+      <a href="o.html">Opportunities</a>
+      <a href="community.html">Community</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -110,23 +161,31 @@
     </p>
     <div class="buttons">
       <a href="scholarships.html">Find Scholarships</a>
-      <a href="opportunities.html">Browse Opportunities</a>
-      <a href="forum.html">Join the Community</a>
+      <a href="o.html">Browse Opportunities</a>
+      <a href="community.html">Join the Community</a>
+      <a href="contact.html">Contact us</a>
+      <a href="about.html">About us</a>
     </div>
   </section>
 
-  <!-- Footer with Nav -->
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Rural Opportunity Hub</p>
-    <nav>
-      <a href="main.html">Home</a>
-      <a href="scholarships.html">Scholarships</a>
-      <a href="opportunities.html">Opportunities</a>
-      <a href="forum.html">Community</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="footer-left">
+      <img src="ROH_logo.png" alt="Rural Opportunity Hub Logo">
+    </div>
+    <div class="footer-center">
+      <nav>
+        <a href="main.html">Home</a>
+        <a href="scholarships.html">Scholarships</a>
+        <a href="o.html">Opportunities</a>
+        <a href="community.html">Community</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-right">
+      <p>© 2025 Rural Opportunity Hub</p>
+    </div>
   </footer>
 </body>
 </html>
-

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Opportunities (ROH)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    /* Header */
+    header {
+      background-color: #36809c;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+    header img {
+      height: 60px;
+      width: auto;
+    }
+    header nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    header nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header nav a:hover,
+    header nav a.active {
+      text-decoration: underline;
+    }
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      margin-top: 20px;
+      border-radius: 8px;
+      flex: 1;
+    }
+    h2 {
+      color: #36809c;
+      margin-top: 0;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px 0;
+      background-color: #fafafa;
+      position: relative;
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #333;
+    }
+    .card p {
+      margin: 5px 0;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .delete-btn:hover {
+      background: #ff5252;
+    }
+    /* Footer */
+    footer {
+      background-color: #36809c;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+    footer img {
+      height: 50px;
+      width: auto;
+    }
+    footer nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer nav a:hover {
+      text-decoration: underline;
+    }
+    .footer-right p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        justify-content: center;
+      }
+      header nav {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+      }
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      footer nav {
+        margin: 10px 0;
+      }
+    }
+    /* Add opportunity button */
+    .add-opportunity-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #36809c;
+      color: white;
+      font-size: 24px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    .add-opportunity-btn:hover {
+      background-color: #2b667b;
+      transform: scale(1.1);
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1001;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 25px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .close-btn {
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #888;
+    }
+    .close-btn:hover {
+      color: #000;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-group input, 
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    .submit-btn {
+      background-color: #36809c;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+    }
+    .submit-btn:hover {
+      background-color: #2b667b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="ROH_logo.png" alt="Rural Opportunity Hub Logo">
+    <nav>
+      <a href="main.html">Home</a>
+      <a href="scholarships.html">Scholarships</a>
+      <a href="o.html" class="active">Opportunities</a>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Opportunities</h2>
+    <p>Browse available opportunities below. Click the + button to add a new opportunity.</p>
+    
+    <div id="opportunities-container">
+      <div class="card">
+        <h3>Example Opportunity 1</h3>
+        <p>Description of opportunity for rural students.</p>
+        <p>Application Deadline: June 30, 2025</p>
+        <button class="delete-btn">Delete</button>
+      </div>
+      <div class="card">
+        <h3>Example Opportunity 2</h3>
+        <p>Another great opportunity for students in rural communities.</p>
+        <p>Application Deadline: August 15, 2025</p>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add Opportunity Button -->
+  <button class="add-opportunity-btn" id="addOpportunityBtn">+</button>
+
+  <!-- Modal for Adding New Opportunity -->
+  <div class="modal" id="opportunityModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h2>Add New Opportunity</h2>
+      <form id="opportunityForm">
+        <div class="form-group">
+          <label for="title">Opportunity Title</label>
+          <input type="text" id="title" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="deadline">Application Deadline</label>
+          <input type="date" id="deadline" required>
+        </div>
+        <button type="submit" class="submit-btn">Add Opportunity</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <img src="ROH_logo.png" alt="Rural Opportunity Hub Logo">
+    </div>
+    <div class="footer-center">
+      <nav>
+        <a href="main.html">Home</a>
+        <a href="Scholarships.html">Scholarships</a>
+        <a href="o.html">Opportunities</a>
+        <a href="community.html">Community</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-right">
+      <p>© 2025 Rural Opportunity Hub</p>
+    </div>
+  </footer>
+
+  <script>
+    // Get DOM elements
+    const addOpportunityBtn = document.getElementById('addOpportunityBtn');
+    const opportunityModal = document.getElementById('opportunityModal');
+    const closeModal = document.getElementById('closeModal');
+    const opportunityForm = document.getElementById('opportunityForm');
+    const opportunitiesContainer = document.getElementById('opportunities-container');
+    
+    // Open modal when plus button is clicked
+    addOpportunityBtn.addEventListener('click', function() {
+      opportunityModal.style.display = 'flex';
+    });
+    
+    // Close modal when X is clicked
+    closeModal.addEventListener('click', function() {
+      opportunityModal.style.display = 'none';
+    });
+    
+    // Close modal when clicking outside the modal content
+    window.addEventListener('click', function(event) {
+      if (event.target === opportunityModal) {
+        opportunityModal.style.display = 'none';
+      }
+    });
+    
+    // Handle form submission
+    opportunityForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const deadline = document.getElementById('deadline').value;
+      
+      if (title && description && deadline) {
+        // Format the date for display
+        const formattedDate = new Date(deadline).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+        
+        // Create a new opportunity element
+        const newOpportunity = document.createElement('div');
+        newOpportunity.className = 'card';
+        newOpportunity.innerHTML = `
+          <h3>${title}</h3>
+          <p>${description}</p>
+          <p>Application Deadline: ${formattedDate}</p>
+          <button class="delete-btn">Delete</button>
+        `;
+        
+        // Add delete functionality
+        newOpportunity.querySelector('.delete-btn').addEventListener('click', function() {
+          if (confirm('Are you sure you want to delete this opportunity?')) {
+            newOpportunity.remove();
+          }
+        });
+        
+        // Insert the new opportunity at the top of the container
+        opportunitiesContainer.insertBefore(newOpportunity, opportunitiesContainer.firstChild);
+        
+        // Reset form and close modal
+        opportunityForm.reset();
+        opportunityModal.style.display = 'none';
+        
+        alert('Opportunity added successfully!');
+      }
+    });
+    
+    // Add delete functionality to existing opportunities
+    document.querySelectorAll('.delete-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        if (confirm('Are you sure you want to delete this opportunity?')) {
+          this.parentElement.remove();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

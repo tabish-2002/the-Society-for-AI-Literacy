@@ -1,4 +1,3 @@
-<!-- About Us Page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,24 +10,37 @@
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+    /* Header */
     header {
       background-color: #36809c;
       color: white;
-      padding: 1rem;
-      text-align: center;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
     }
-    nav {
-      margin-top: 0.5rem;
+    header img {
+      height: 60px;
+      width: auto;
     }
-    nav a {
+    header nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    header nav a {
       color: white;
-      margin: 0 10px;
+      margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
     }
-    nav a:hover,
-    nav a.active {
+    header nav a:hover,
+    header nav a.active {
       text-decoration: underline;
     }
     section {
@@ -38,6 +50,7 @@
       background-color: white;
       margin-top: 20px;
       border-radius: 8px;
+      flex: 1;
     }
     h2 {
       color: #36809c;
@@ -63,42 +76,71 @@
       text-align: center;
     }
     .team-member img {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 10px;
+      border: 3px solid #36809c;
     }
+    /* Footer */
     footer {
-      text-align: center;
-      padding: 1rem;
       background-color: #36809c;
       color: white;
-      margin-top: 20px;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: auto;
     }
-    footer nav {
-      margin-top: 10px;
+    footer img {
+      height: 50px;
+      width: auto;
     }
-    footer a {
+    footer nav a {
       color: white;
-      margin: 0 8px;
+      margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
     }
-    footer a:hover {
+    footer nav a:hover {
       text-decoration: underline;
+    }
+    .footer-right p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        justify-content: center;
+      }
+      header nav {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+      }
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      footer nav {
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <h1>Rural Opportunity Hub</h1>
+    <img src="ROH_logo.png" alt="Rural Opportunity Hub Logo">
     <nav>
       <a href="main.html">Home</a>
       <a href="scholarships.html">Scholarships</a>
       <a href="opportunities.html">Opportunities</a>
-      <a href="forum.html">Community</a>
+      <a href="community.html">Community</a>
       <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -130,7 +172,7 @@
     <h2>Meet the Team</h2>
     <div class="team">
       <div class="team-member">
-        <img src="placeholder.jpg" alt="Profile picture of Syed Tabish Rahman">
+        <img src="IMG_0137.png" alt="Syed Tabish Rahman">
         <h3>Syed Tabish Rahman</h3>
         <p>Co-Founder</p>
         <p>Tabish is passionate about building inclusive platforms that help students thrive. As a co-founder of ROH, he ensures that the platform is accessible, modern, and student-friendly.</p>
@@ -148,15 +190,22 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Rural Opportunity Hub</p>
-    <nav>
-      <a href="main.html">Home</a>
-      <a href="scholarships.html">Scholarships</a>
-      <a href="opportunities.html">Opportunities</a>
-      <a href="forum.html">Community</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="footer-left">
+      <img src="ROH_logo.png" alt="Rural Opportunity Hub Logo">
+    </div>
+    <div class="footer-center">
+      <nav>
+        <a href="main.html">Home</a>
+        <a href="scholarships.html">Scholarships</a>
+        <a href="o.html">Opportunities</a>
+        <a href="community.html">Community</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-right">
+      <p>© 2025 Rural Opportunity Hub</p>
+    </div>
   </footer>
 </body>
 </html>
